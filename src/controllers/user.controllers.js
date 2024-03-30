@@ -14,15 +14,15 @@ const create = catchError(async(req, res) => {
 const getOne = catchError(async(req, res) => {
     const { id } = req.params
     const result = await User.findByPk(id)
-    if(!result) res.status(404).json("Usuario no encontrado")
+    if(!result) res.status(404).json("user not found")
     return res.json(result)
 })
 
 const destroy = catchError(async(req, res) => {
     const { id } = req.params
     const result = await User.destroy( { where: { id } } )
-    if(!result) res.status(404).json("Usuario no encontrado")
-    return res.status(204).json("Usuario Eliminado")
+    if(!result) res.status(404).json("user not found")
+    return res.status(204).json("User Deleted")
 })
 
 const update = catchError(async(req, res) => {
